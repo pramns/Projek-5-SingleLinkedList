@@ -81,7 +81,7 @@ public:
       node *currentnode = start;
       while (currentnode != NULL){
         cout << currentnode->noMhs << endl;
-        currentnode - currentnode->next;
+        currentnode = currentnode->next;
       }
       cout << endl;
     }
