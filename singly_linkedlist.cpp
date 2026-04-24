@@ -14,4 +14,36 @@ public:
   linkedlist(){
     start = NULL;
   }
+  void addnote(){
+    int nim;
+    cout << "\nMasukan Nomor Mahasiswa : ";
+    cin >> nim;
+
+    node *nodebaru = new node;
+    nodebaru -> noMhs = nim;
+
+    if (start == NULL || nim <= start->noMhs){
+      if ((start != NULL) && (nim == start->noMhs)){
+        cout << "\nDuplikasi noMhs tidak diizinkan\n";
+        return;
+      }
+      nodebaru->next = start;
+      start = nodebaru;
+      return;
+    }
+    node *previous = start;
+    node *current = start;
+
+    while ((current != NULL) && (nim >= current->noMhs )){
+      if (nim == current->noMhs){
+        cout << "\nDuplikasi no Mhs tidak diizinkan\n";
+        return;
+      }
+      previous = current;
+      current = current->next;
+    }
+    nodebaru->next = current;
+    previous->next = nodebaru;
+  }
+
 };
